@@ -11,7 +11,7 @@ const Navbar = () => {
     >
       <Link href="/" className="flex items-center gap-1">
         <Image
-          src="/icons/zynqlogonobg.png"
+          src="/icons/logo.svg"
           alt="zynq logo"
           width={32}
           height={32}
