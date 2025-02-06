@@ -5,7 +5,7 @@ import Sidebar from "@/components/Sidebar";
 const HomeLayout = ({ children }: { children: ReactNode }) => {
   return (
     <main className="relative">
-      <Navbar/>
+      <Navbar />
       <div className="flex">
         <Sidebar/>
         <section
