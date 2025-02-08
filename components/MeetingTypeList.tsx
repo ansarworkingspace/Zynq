@@ -12,7 +12,11 @@ const MeetingTypeList = () => {
     "isScheduleMeeting" | "isJoiningMeeting" | "isInstanMeeting" | undefined
   >();
 
-  const createMeeting = () => {};
+  const createMeeting = () => {
+
+    
+
+  };
 
   return (
     <section
