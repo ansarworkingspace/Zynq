@@ -50,7 +50,7 @@ const MeetingTypeList = () => {
 
       <MeetingModel
         isOpen={meetingState === "isInstanMeeting"}
-        isClose={() => setMeetingsState(undefined)}
+        onClose={() => setMeetingsState(undefined)}
         title="Start and Instant Meeting"
         className="text-center"
         buttonText="Start meeting"
