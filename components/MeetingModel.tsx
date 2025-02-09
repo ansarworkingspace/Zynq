@@ -9,6 +9,7 @@ import {
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Button } from "./ui/button";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 interface MeetingModelProps {
   isOpen: boolean;
@@ -39,6 +40,10 @@ const MeetingModel = ({
         className="flex w0-full max-w-[520px]
       flex-col gap-6 border-none bg-dark-1 px-6 py-9 text-white"
       >
+        <VisuallyHidden>
+          <DialogTitle>{title}</DialogTitle>
+        </VisuallyHidden>
+
         <div className="flex flex-col gap-6">
           {image && (
             <div className="flex justify-center">
@@ -50,12 +55,16 @@ const MeetingModel = ({
           </h1>
 
           {children}
-          <Button className="bg-blue-1 focus-visible:ring-0 focus-visible:ring-offset-0
-          " onClick={handleClick}>
+          <Button
+            className="bg-blue-1 focus-visible:ring-0 focus-visible:ring-offset-0
+          "
+            onClick={handleClick}
+          >
             {buttonIcon && (
-                <Image src={buttonIcon} alt="buttonIcon" width={13} height={13}/>
-            )} &nbsp;
-            {buttonText || 'Schedule Meeting'}
+              <Image src={buttonIcon} alt="buttonIcon" width={13} height={13} />
+            )}{" "}
+            &nbsp;
+            {buttonText || "Schedule Meeting"}
           </Button>
         </div>
       </DialogContent>
