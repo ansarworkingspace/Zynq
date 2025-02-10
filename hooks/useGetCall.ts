@@ -10,7 +10,8 @@ export const useGetCalls = () => {
 
   useEffect(() => {
     const loadCalls = async () => {
-      if (!client || user?.id) return;
+      if (!client || !user?.id) return;
+
 
       setIsLoading(true);
 
