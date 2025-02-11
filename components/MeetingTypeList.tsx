@@ -9,6 +9,7 @@ import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 import { useToast } from "@/hooks/use-toast";
 import { Textarea } from "./ui/textarea";
 import ReactDatePicker from "react-datepicker";
+import { Input } from "./ui/input";
 
 const MeetingTypeList = () => {
   const router = useRouter();
@@ -71,9 +72,7 @@ const MeetingTypeList = () => {
     }
   };
 
-
-const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${callDetails?.id}`
-
+  const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${callDetails?.id}`;
 
   return (
     <section
@@ -155,8 +154,8 @@ const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${callDetails?.
           title="Meeting Created"
           className="text-center"
           handleClick={() => {
-            navigator.clipboard.writeText(meetingLink)
-            toast({title:"Link copied"})
+            navigator.clipboard.writeText(meetingLink);
+            toast({ title: "Link copied" });
           }}
           image="/icons/checked.svg"
           buttonIcon="/icons/copy.svg"
@@ -172,6 +171,19 @@ const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${callDetails?.
         buttonText="Start meeting"
         handleClick={createMeeting}
       />
+
+      <MeetingModel
+        isOpen={meetingState === "isJoiningMeeting"}
+        onClose={() => setMeetingsState(undefined)}
+        title="Type the link here"
+        className="text-center"
+        buttonText="Join meeting"
+        handleClick={() => router.push(values.link)}
+      >
+        <Input  placeholder="Meeting Link" className="border-none bg-dark-3
+        focus-visible:ring-0 focus-visible:ring-offset-0"
+        onChange={(e)=> setvalues({...values,link:e.target.value})}/>
+      </MeetingModel>
     </section>
   );
 };
