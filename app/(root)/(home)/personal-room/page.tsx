@@ -89,7 +89,7 @@ const PersonalRoom = () => {
               <span className="text-sm text-gray-400">Meeting Link</span>
               <Button
                 onClick={() => {
-                  navigator.clipboard.writeText(meetingLink);
+                  navigator.clipboard.writeText(`https://${meetingLink}`);
                   toast({
                     title: "Link copied to clipboard",
                     description: "You can now share it with others",
@@ -103,7 +103,7 @@ const PersonalRoom = () => {
               </Button>
             </div>
             <p className="mt-2 truncate rounded bg-gray-900 p-2 text-sm text-gray-300">
-              {meetingLink}
+              https://{meetingLink}
             </p>
           </div>
 
